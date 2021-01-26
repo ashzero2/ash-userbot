@@ -1,0 +1,8 @@
+pyrogram
+tgcrypto
+pprint
+googletrans
+time
+requests
+search-engine-parser
+uvloop
