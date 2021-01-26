@@ -8,26 +8,22 @@ from googletrans import Translator, constants
 from pprint import pprint
 import requests
 
-app = Client("park_mujin", api_id=2366818, api_hash="240d844e00882e66b82326014dd8b632")
+app = Client("user_name", api_id=, api_hash="")
 
 startup = time.time()
 
-@app.on_message(filters.command(['lazy']) & filters.user("park_mujin"))
+@app.on_message(filters.command(['lazy']) & filters.user("user_name"))
 async def hello(client, message):
     bot_uptime = int(time.time() - startup)
     await message.reply_text(f"TF ! I said dont distrub me, I'm already active for {formatter.get_readable_time((bot_uptime))}")
 
-@app.on_message(filters.command(['up']) & filters.user("park_mujin"))
+@app.on_message(filters.command(['up']) & filters.user("user_name"))
 async def uptime(client, message):
     bot_uptime = int(time.time() - startup)
     await message.reply_text(
         f"Aww!! I think I'm alive for {formatter.get_readable_time((bot_uptime))}")
 
-@app.on_message(filters.command(['yamu']))
-async def yamu(client, message):
-    await message.reply_text("My beloved wife")
-
-@app.on_message(filters.command(['google']) & filters.user("park_mujin"))
+@app.on_message(filters.command(['google']) & filters.user("user_name"))
 async def google(_, message: Message):
     text = message.text.replace("/google ", '')
     if text != '':
@@ -46,7 +42,7 @@ async def google(_, message: Message):
     else:
         await message.reply_text('"/google" Needs An Argument')
 
-@app.on_message(filters.command(['ping']) & filters.user("park_mujin"))
+@app.on_message(filters.command(['ping']) & filters.user("user_name"))
 async def ping(_, message: Message):
     app.set_parse_mode("markdown")
     m = await message.reply_text("Pls wait Baka . . .")
@@ -60,7 +56,7 @@ async def ping(_, message: Message):
             result += f"DC{i} - {ping1}ms [  I'm Here! ]\n"
         await m.edit(result)
 
-@app.on_message(filters.command(['paste']) & filters.user("park_mujin"))
+@app.on_message(filters.command(['paste']) & filters.user("user_name"))
 async def paste(_, message: Message):
     if bool(message.reply_to_message) is True:
         app.set_parse_mode("markdown")
@@ -86,14 +82,14 @@ async def paste(_, message: Message):
             + "Won't Do Anything Other Than Proving Everyone That "
             + "You Are A Spammer Who Is Obsessed To 'BlueTextMustClickofobia")
 
-@app.on_message(filters.command(['en']) & filters.user("park_mujin"))
+@app.on_message(filters.command(['en']) & filters.user("user_name"))
 async def trans(_, message: Message):
     translator = Translator()
     text_tr = message.reply_to_message.text
     tr_word = translator.translate(text_tr)
     await message.reply_text(f"{tr_word.text}({tr_word.src})")
 
-@app.on_message(filters.command(['spam']) & filters.user("park_mujin"))
+@app.on_message(filters.command(['spam']) & filters.user("user_name"))
 async def spam(_, message: Message):
     text = message.text.replace("/spam ", '')
     for i in text:
