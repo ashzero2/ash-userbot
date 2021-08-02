@@ -1,17 +1,3 @@
 # ash-userbot
 
-H
-
-
-
-
-
-
-
-
-
-
-
-
-
-I
+Simple user-bot for telegram written on Pyrogram.
